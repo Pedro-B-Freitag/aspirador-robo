@@ -4,10 +4,9 @@ from quarto import Quarto
 
 CORES = {
     0: (255, 255, 255),  # limpo
-    1: (74, 74, 74),      # parede
-    2: (139, 94, 52),     # sujo - marrom
+    1: (74, 74, 74),     # parede
+    2: (139, 94, 52),    # sujo - marrom
 }
-
 
 def montar_imagem(matriz):
     imagem = []
@@ -31,10 +30,7 @@ def mostrar_quarto(quarto: Quarto):
     ax.grid(which="minor", color="black", linewidth=1)
     ax.tick_params(which="both", bottom=False, left=False, labelbottom=False, labelleft=False)
 
-    plt.show()
+    ax.plot(quarto.robo_coluna, quarto.robo_linha, marker="o", color="red", markersize=30)
 
-
-if __name__ == "__main__":
-    quarto = Quarto()
-    quarto.exibir()
-    mostrar_quarto(quarto)
+    plt.pause(0.5)
+    plt.clf()
