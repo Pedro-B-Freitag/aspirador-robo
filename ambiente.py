@@ -62,6 +62,22 @@ def mover(sala, posicao, acao):
     return (destino_linha, destino_coluna)
 
 
+def sujeiras(sala):
+    posicoes = []
+    for posicao in todas_posicoes():
+        if esta_sujo(sala, posicao):
+            posicoes.append(posicao)
+    return posicoes
+
+
+def perceber(sala, posicao):
+    return (posicao, esta_sujo(sala, posicao))
+
+
+def perceber_com_sujeiras(sala, posicao):
+    return (posicao, esta_sujo(sala, posicao), sujeiras(sala))
+
+
 def checkObj(sala):
     for linha in sala:
         if SUJO in linha:
