@@ -6,10 +6,16 @@ class Quarto:
     LIMPO = 0
     SUJO = 2
 
-    def __init__(self):
+    def __init__(self, robo_linha=None, robo_coluna=None):
         self.matriz = self._gerar_quarto()
-        self.robo_linha = random.randint(1, self.TAMANHO - 2)
-        self.robo_coluna = random.randint(1, self.TAMANHO - 2)
+
+        if robo_linha is None:
+            robo_linha = random.randint(1, self.TAMANHO - 2)
+        if robo_coluna is None:
+            robo_coluna = random.randint(1, self.TAMANHO - 2)
+
+        self.robo_linha = robo_linha
+        self.robo_coluna = robo_coluna
 
     def _gerar_quarto(self):
         matriz = [[self.PAREDE] * self.TAMANHO for _ in range(self.TAMANHO)]
